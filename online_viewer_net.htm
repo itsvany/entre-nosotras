@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#651338">
+  <meta name="description" content="ENTRE NOSOTRAS: un espacio para mujeres que quieren aprender, crear y descubrir oportunidades en la tecnología.">
+  <title>ENTRE NOSOTRAS | Tu espacio para crear el futuro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --apricot: #F7C6A3;
+      --magenta: #FF4FA3;
+      --pink: #FCE4EF;
+      --wine: #651338;
+      --mauve: #C77DA1;
+      --cream: #FFF9FC;
+      --text: #422435;
+      --white: #FFFFFF;
+      --shadow: 0 12px 35px rgba(101, 19, 56, .09);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    :focus-visible {
+      outline: 3px solid var(--magenta);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 8px;
+      background: var(--white);
+      padding: 12px;
+      z-index: 100;
+    }
+
+    .skip-link:focus { left: 8px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 249, 252, .94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #F2D5E2;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--wine);
+      font-weight: 700;
+      font-size: 1.08rem;
+      letter-spacing: -.5px;
+    }
+
+    .brand span { color: var(--magenta); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: .88rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: #A51B60; }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: var(--wine);
+      border: 1px solid #E8C5D7;
+      border-radius: 12px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 20px;
+      background: var(--wine);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--wine);
+      border: 1px solid #E8C5D7;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 78px;
+      background:
+        radial-gradient(ellipse at 90% 10%, #F7C6A3 0, transparent 32%),
+        radial-gradient(ellipse at 5% 95%, #FCE4EF 0, transparent 40%),
+        var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #9C245A;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "DM Serif Display", Georgia, serif;
+      line-height: 1.18;
+      font-weight: 400;
+    }
+
+    h1 {
+      color: var(--wine);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      margin: 15px 0;
+      letter-spacing: -1.8px;
+    }
+
+    h1 span { color: #C72D79; }
+
+    .hero p {
+      max-width: 590px;
+      color: #69485A;
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-art {
+      min-height: 340px;
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 38px;
+      background: linear-gradient(145deg, #FCE4EF, #F7C6A3);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-art::before, .hero-art::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(101,19,56,.15);
+      border-radius: 50%;
+      width: 240px;
+      height: 240px;
+    }
+
+    .hero-art::after {
+      width: 310px;
+      height: 310px;
+    }
+
+    .art-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--wine);
+    }
+
+    .art-symbol {
+      font-size: 6rem;
+      line-height: 1.2;
+      filter: drop-shadow(0 8px 12px rgba(101,19,56,.12));
+    }
+
+    .art-content strong {
+      display: block;
+      font-size: 1.2rem;
+    }
+
+    .art-content small { color: #79405C; }
+
+    section { padding: 76px 0; }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--wine);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-heading p { color: #755568; }
+
+    .areas-grid, .resource-grid, .women-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #F0DCE6;
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: 0 5px 18px rgba(101,19,56,.035);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 17px;
+      background: var(--pink);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: var(--wine);
+      font-size: 1.35rem;
+      margin: 8px 0;
+    }
+
+    .card p {
+      font-size: .9rem;
+      color: #755568;
+    }
+
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: var(--pink);
+      color: var(--wine);
+      font-size: .73rem;
+      font-weight: 600;
+    }
+
+    .inspiration { background: #FCECF3; }
+
+    .women-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .woman-card { text-align: center; }
+
+    .woman-avatar {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(140deg, #F7C6A3, #F5B5D4);
+      font-size: 2.4rem;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .woman-card .contribution {
+      font-size: .85rem;
+      color: #755568;
+    }
+
+    .resource-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 25px;
+      align-items: center;
+    }
+
+    .resource-tools input {
+      flex: 1 1 220px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #DFC1D1;
+      background: var(--white);
+      color: var(--text);
+      border-radius: 13px;
+      padding: 12px 14px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-button {
+      padding: 9px 14px;
+      border: 1px solid #E6C7D7;
+      border-radius: 999px;
+      color: var(--wine);
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .filter-button[aria-pressed="true"] {
+      background: var(--wine);
+      color: var(--white);
+      border-color: var(--wine);
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .resource-card .resource-link {
+      margin-top: auto;
+      color: #971B58;
+      font-weight: 600;
+      font-size: .88rem;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .resource-card .button {
+      padding: 8px 12px;
+      font-size: .8rem;
+      margin-top: 4px;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 30px;
+      color: #755568;
+    }
+
+    .journey {
+      background: linear-gradient(135deg, var(--wine), #8B2255);
+      color: var(--white);
+    }
+
+    .journey .section-heading h2,
+    .journey .section-heading p { color: var(--white); }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .journey .card {
+      color: var(--text);
+      border: 0;
+    }
+
+    .community-box {
+      max-width: 760px;
+      margin: auto;
+      padding: clamp(24px, 5vw, 44px);
+      background: #FCECF3;
+      border: 1px solid #F0D1E0;
+      border-radius: 30px;
+    }
+
+    .community-box h2 {
+      color: var(--wine);
+      font-size: 2.2rem;
+      margin-top: 0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    .privacy-note {
+      font-size: .78rem;
+      color: #755568;
+    }
+
+    .status-message {
+      margin-top: 15px;
+      padding: 12px;
+      background: var(--white);
+      border-radius: 12px;
+      color: var(--wine);
+    }
+
+    footer {
+      background: #3F0C23;
+      color: #FCE4EF;
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer a { color: #FFD1E5; }
+    footer p { font-size: .83rem; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-art { min-height: 270px; }
+      .areas-grid, .resource-grid { grid-template-columns: repeat(2, 1fr); }
+      .women-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 12px; }
+    }
+
+    @media (max-width: 620px) {
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: var(--cream);
+        border-bottom: 1px solid #F2D5E2;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 7px 0; }
+      .hero { padding: 60px 0; }
+      section { padding: 58px 0; }
+      .areas-grid, .resource-grid, .women-grid, .journey-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .hero-actions .button { width: 100%; }
+      .footer-content { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header>
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">♡ ENTRE <span>NOSOTRAS</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-expanded="false" aria-controls="navLinks">
+        ☰ Menú
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#explora">Explora</a>
+        <a href="#inspiracion">Inspiración</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#mi-camino">Mi camino</a>
+        <a href="#comunidad">Comunidad</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">✿ Tecnología para todas</span>
+          <h1>Tu curiosidad puede <span>cambiarlo todo.</span></h1>
+          <p>
+            Bienvenida a ENTRE NOSOTRAS, un espacio para descubrir,
+            aprender y crear con tecnología. No necesitas saberlo todo
+            para empezar. ♡
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#explora">Explorar mi camino ✧</a>
+            <a class="button secondary" href="#inspiracion">Conocer nuestra historia</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Ilustración decorativa de tecnología">
+          <div class="art-content">
+            <div class="art-symbol" aria-hidden="true">♡</div>
+            <strong>Ideas que conectan.</strong>
+            <small>Conocimiento que transforma. ✦</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="explora">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Encuentra tu curiosidad</span>
+          <h2>Hay un lugar para ti en la tecnología.</h2>
+          <p>
+            Explora distintas áreas y descubre cuál despierta tus ganas
+            de aprender. Puedes comenzar desde cero.
+          </p>
+        </div>
+
+        <div class="areas-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <span class="tag">Empieza aquí</span>
+            <h3>Programación</h3>
+            <p>Aprende a crear páginas web, aplicaciones y soluciones digitales.</p>
+            <a class="resource-link" href="#recursos">Ver recursos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✧</div>
+            <span class="tag">Explora el futuro</span>
+            <h3>Inteligencia artificial</h3>
+            <p>Descubre cómo funcionan los sistemas inteligentes y cómo utilizarlos con responsabilidad.</p>
+            <a class="resource-link" href="#recursos">Ver recursos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">♡</div>
+            <span class="tag">Protege lo digital</span>
+            <h3>Ciberseguridad</h3>
+            <p>Conoce buenas prácticas para proteger tus cuentas y tu información.</p>
+            <a class="resource-link" href="#recursos">Ver recursos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✿</div>
+            <span class="tag">Crea y diseña</span>
+            <h3>Diseño digital</h3>
+            <p>Transforma ideas en experiencias visuales claras, bonitas y accesibles.</p>
+            <a class="resource-link" href="#recursos">Ver recursos →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="inspiration" id="inspiracion">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Mujeres que abrieron camino</span>
+          <h2>Sus ideas también cambiaron el mundo.</h2>
+          <p>
+            Conoce a algunas de las mujeres cuyas contribuciones
+            ayudaron a construir la tecnología que usamos hoy.
+          </p>
+        </div>
+
+        <div class="women-grid">
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">🖋️</div>
+            <h3>Ada Lovelace</h3>
+            <p class="contribution">
+              Escribió un algoritmo para la máquina analítica de Charles
+              Babbage y es reconocida como pionera de la programación.
+            </p>
+            <span class="tag">Programación</span>
+          </article>
+
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">🚀</div>
+            <h3>Katherine Johnson</h3>
+            <p class="contribution">
+              Matemática de la NASA. Sus cálculos fueron fundamentales
+              para las trayectorias de vuelos espaciales tripulados.
+            </p>
+            <span class="tag">Matemáticas y espacio</span>
+          </article>
+
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">💻</div>
+            <h3>Margaret Hamilton</h3>
+            <p class="contribution">
+              Lideró el equipo que desarrolló el software de vuelo
+              a bordo de las misiones Apollo.
+            </p>
+            <span class="tag">Ingeniería de software</span>
+          </article>
+
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">⌨️</div>
+            <h3>Grace Hopper</h3>
+            <p class="contribution">
+              Pionera de los compiladores y de los lenguajes de
+              programación; contribuyó al desarrollo de COBOL.
+            </p>
+            <span class="tag">Ciencias de la computación</span>
+          </article>
+
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">🌐</div>
+            <h3>Radia Perlman</h3>
+            <p class="contribution">
+              Ingeniera e investigadora conocida por diseñar el
+              algoritmo detrás del Spanning Tree Protocol, esencial
+              para redes Ethernet.
+            </p>
+            <span class="tag">Redes</span>
+          </article>
+
+          <article class="card woman-card">
+            <div class="woman-avatar" aria-hidden="true">🔬</div>
+            <h3>Tu nombre aquí</h3>
+            <p class="contribution">
+              Cada nueva generación puede aportar ideas, resolver
+              problemas y abrir caminos para las que vienen después.
+            </p>
+            <span class="tag">El futuro también es tuyo</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Una biblioteca para comenzar</span>
+          <h2>Aprende a tu ritmo.</h2>
+          <p>
+            Busca recursos y filtra por tema. Son enlaces externos
+            para continuar aprendiendo.
+          </p>
+        </div>
+
+        <div class="resource-tools">
+          <label for="resourceSearch" class="hidden">Buscar recursos</label>
+          <input id="resourceSearch" type="search"
+            placeholder="Buscar: HTML, JavaScript, diseño..."
+            autocomplete="off">
+          <div class="filter-buttons" aria-label="Filtrar por categoría">
+            <button class="filter-button" data-filter="Todos" aria-pressed="true">Todos</button>
+            <button class="filter-button" data-filter="Programación" aria-pressed="false">Programación</button>
+            <button class="filter-button" data-filter="Diseño" aria-pressed="false">Diseño</button>
+            <button class="filter-button" data-filter="Seguridad" aria-pressed="false">Seguridad</button>
+            <button class="filter-button" data-filter="Comunidad" aria-pressed="false">Comunidad</button>
+          </div>
+        </div>
+
+        <div class="resource-grid" id="resourceGrid">
+          <article class="card resource-card"
+            data-category="Programación" data-search="mdn html css javascript desarrollo web documentación">
+            <span class="tag">Programación</span>
+            <h3>MDN Web Docs</h3>
+            <p>Documentación y guías para aprender HTML, CSS y JavaScript.</p>
+            <a class="resource-link" href="https://developer.mozilla.org/es/"
+              target="_blank" rel="noopener noreferrer">Visitar MDN ↗</a>
+            <button class="button secondary favorite-button" type="button"
+              aria-pressed="false">♡ Guardar favorito</button>
+          </article>
+
+          <article class="card resource-card"
+            data-category="Programación" data-search="freecodecamp cursos programación html css javascript">
+            <span class="tag">Programación</span>
+            <h3>freeCodeCamp</h3>
+            <p>Lecciones y ejercicios para practicar desarrollo web y programación.</p>
+            <a class="resource-link" href="https://www.freecodecamp.org/"
+              target="_blank" rel="noopener noreferrer">Visitar freeCodeCamp ↗</a>
+            <button class="button secondary favorite-button" type="button"
+              aria-pressed="false">♡ Guardar favorito</button>
+          </article>
+
+          <article class="card resource-card"
+            data-category="Diseño" data-search="web design accessibility diseño interfaz accesibilidad w3c">
+            <span class="tag">Diseño</span>
+            <h3>W3C WAI</h3>
+            <p>Guías y principios para diseñar experiencias web accesibles.</p>
+            <a class="resource-link" href="https://www.w3.org/WAI/"
+              target="_blank" rel="noopener noreferrer">Visitar W3C WAI ↗</a>
+            <button class="button secondary favorite-button" type="button"
+              aria-pressed="false">♡ Guardar favorito</button>
+          </article>
+
+          <article class="card resource-card"
+            data-category="Seguridad" data-search="ciberseguridad privacidad contraseñas phishing seguridad digital">
+            <span class="tag">Seguridad</span>
+            <h3>INCIBE</h3>
+            <p>Consejos y materiales para mejorar tu seguridad en internet.</p>
+            <a class="resource-link" href="https://www.incibe.es/"
+              target="_blank" rel="noopener noreferrer">Visitar INCIBE ↗</a>
+            <button class="button secondary favorite-button" type="button"
+              aria-pressed="false">♡ Guardar favorito</button>
+          </article>
+
+          <article class="card resource-card"
+            data-category="Comunidad" data-search="women technology women who code comunidad mujeres programación">
+            <span class="tag">Comunidad</span>
+            <h3>Women Who Code</h3>
+            <p>Consulta su sitio para conocer su trayectoria y los recursos que tenga disponibles.</p>
+            <a class="resource-link" href="https://www.womenwhocode.com/"
+              target="_blank" rel="noopener noreferrer">Visitar sitio ↗</a>
+            <button class="button secondary favorite-button" type="button"
+              aria-pressed="false">♡ Guardar favorito</button>
+          </article>
+        </div>
+
+        <p id="searchStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="journey" id="mi-camino">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Pequeños pasos, grandes ideas</span>
+          <h2>Tu camino comienza con algo pequeño.</h2>
+          <p>
+            No necesitas aprender todo de una vez. Elige una actividad
+            y avanza a tu propio ritmo.
+          </p>
+        </div>
+
+        <div class="journey-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🌷</div>
+            <h3>Reto 01: Mi primera web</h3>
+            <p>Crea una página HTML que te presente y cuente algo que te apasiona.</p>
+            <button class="button challenge-button" type="button"
+              data-challenge="Reto 01: crea un archivo index.html con un título, un párrafo y un enlace.">
+              Ver reto
+            </button>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✨</div>
+            <h3>Reto 02: Mi idea con IA</h3>
+            <p>Piensa en una tarea cotidiana y escribe un prompt para mejorarla con ayuda de IA.</p>
+            <button class="button challenge-button" type="button"
+              data-challenge="Reto 02: define un problema, escribe un prompt claro y evalúa críticamente la respuesta de la IA.">
+              Ver reto
+            </button>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🔐</div>
+            <h3>Reto 03: Me cuido online</h3>
+            <p>Revisa la seguridad de tus cuentas y aprende a reconocer mensajes sospechosos.</p>
+            <button class="button challenge-button" type="button"
+              data-challenge="Reto 03: activa la autenticación multifactor donde esté disponible y revisa las opciones de recuperación de tus cuentas.">
+              Ver reto
+            </button>
+          </article>
+        </div>
+
+        <p id="challengeStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="comunidad">
+      <div class="container">
+        <div class="community-box">
+          <span class="eyebrow">Un espacio que crece contigo ♡</span>
+          <h2>¿Qué te gustaría encontrar aquí?</h2>
+          <p>
+            Esta versión es un prototipo. Comparte una idea de función
+            o recurso que te gustaría ver en ENTRE NOSOTRAS.
+          </p>
+
+          <form id="suggestionForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="suggestionTopic">Tema de interés</label>
+                <select id="suggestionTopic" required>
+                  <option value="">Elige una opción</option>
+                  <option>Programación</option>
+                  <option>Inteligencia artificial</option>
+                  <option>Ciberseguridad</option>
+                  <option>Diseño digital</option>
+                  <option>Oportunidades profesionales</option>
+                  <option>Otro tema</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="suggestionType">¿Qué te gustaría ver?</label>
+                <select id="suggestionType" required>
+                  <option value="">Elige una opción</option>
+                  <option>Tutoriales</option>
+                  <option>Retos prácticos</option>
+                  <option>Historias de mujeres</option>
+                  <option>Cursos y becas</option>
+                  <option>Eventos y comunidad</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="suggestionMessage">Tu idea (opcional)</label>
+                <textarea id="suggestionMessage" rows="3"
+                  maxlength="300"
+                  placeholder="Me gustaría aprender sobre..."></textarea>
+              </div>
+
+              <div class="field full">
+                <button class="button" type="submit">Enviar sugerencia ✧</button>
+              </div>
+            </div>
+          </form>
+
+          <p class="privacy-note">
+            Demostración académica: este formulario no envía ni almacena
+            datos en un servidor. No incluyas información personal.
+          </p>
+          <p id="formStatus" class="status-message" role="status" aria-live="polite" hidden></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <a class="brand" href="#inicio" style="color:#FFF9FC">♡ ENTRE NOSOTRAS</a>
+        <p>Tu espacio para crear el futuro. ✿</p>
+      </div>
+      <div>
+        <a href="#explora">Explora</a> ·
+        <a href="#recursos">Recursos</a> ·
+        <a href="#comunidad">Comunidad</a>
+      </div>
+      <p>Proyecto académico · Diseñado con curiosidad y propósito.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menú adaptable para dispositivos móviles
+    const menuToggle = document.querySelector("#menuToggle");
+    const navLinks = document.querySelector("#navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Buscador y filtros de recursos
+    const searchInput = document.querySelector("#resourceSearch");
+    const resourceCards = [...document.querySelectorAll(".resource-card")];
+    const filterButtons = [...document.querySelectorAll(".filter-button")];
+    const searchStatus = document.querySelector("#searchStatus");
+    let activeFilter = "Todos";
+
+    function filterResources() {
+      const query = searchInput.value.trim().toLocaleLowerCase("es");
+      let visibleCount = 0;
+
+      resourceCards.forEach(card => {
+        const category = card.dataset.category;
+        const searchText = (
+          card.dataset.search + " " + card.textContent
+        ).toLocaleLowerCase("es");
+
+        const matchesCategory =
+          activeFilter === "Todos" || category === activeFilter;
+        const matchesQuery = searchText.includes(query);
+        const visible = matchesCategory && matchesQuery;
+
+        card.classList.toggle("hidden", !visible);
+        if (visible) visibleCount++;
+      });
+
+      searchStatus.textContent = visibleCount
+        ? `${visibleCount} recurso(s) encontrado(s).`
+        : "No encontramos recursos con esos criterios. Prueba otra búsqueda.";
+    }
+
+    searchInput.addEventListener("input", filterResources);
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        filterButtons.forEach(item => {
+          item.setAttribute(
+            "aria-pressed",
+            String(item === button)
+          );
+        });
+
+        filterResources();
+      });
+    });
+
+    // Favoritos guardados en este navegador
+    const favoriteButtons = [...document.querySelectorAll(".favorite-button")];
+
+    function updateFavorite(button, isFavorite) {
+      button.setAttribute("aria-pressed", String(isFavorite));
+      button.textContent = isFavorite
+        ? "♥ Guardado"
+        : "♡ Guardar favorito";
+    }
+
+    let savedFavorites = new Set();
+
+    try {
+      savedFavorites = new Set(
+        JSON.parse(localStorage.getItem("entreNosotrasFavorites") || "[]")
+      );
+    } catch (error) {
+      savedFavorites = new Set();
+    }
+
+    favoriteButtons.forEach(button => {
+      const card = button.closest(".resource-card");
+      const key = card.querySelector("h3").textContent;
+
+      updateFavorite(button, savedFavorites.has(key));
+
+      button.addEventListener("click", () => {
+        if (savedFavorites.has(key)) {
+          savedFavorites.delete(key);
+        } else {
+          savedFavorites.add(key);
+        }
+
+        try {
+          localStorage.setItem(
+            "entreNosotrasFavorites",
+            JSON.stringify([...savedFavorites])
+          );
+        } catch (error) {
+          // El botón sigue funcionando aunque el navegador
+          // no permita guardar los favoritos.
+        }
+
+        updateFavorite(button, savedFavorites.has(key));
+      });
+    });
+
+    // Retos de aprendizaje
+    const challengeStatus = document.querySelector("#challengeStatus");
+
+    document.querySelectorAll(".challenge-button").forEach(button => {
+      button.addEventListener("click", () => {
+        challengeStatus.textContent = button.dataset.challenge;
+      });
+    });
+
+    // Formulario de demostración: no transmite información
+    const suggestionForm = document.querySelector("#suggestionForm");
+    const formStatus = document.querySelector("#formStatus");
+
+    suggestionForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!suggestionForm.reportValidity()) return;
+
+      const topic = document.querySelector("#suggestionTopic").value;
+      const type = document.querySelector("#suggestionType").value;
+
+      formStatus.textContent =
+        `¡Gracias por tu idea! En esta demostración seleccionaste "${topic}" y "${type}". No se ha enviado información a ningún servidor.`;
+
+      formStatus.hidden = false;
+      suggestionForm.reset();
+    });
+
+    // Primer mensaje del buscador
+    filterResources();
+  </script>
+</body>
+</html>
